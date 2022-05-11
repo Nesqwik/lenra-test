@@ -7,9 +7,11 @@ module.exports = {
         return axios.get(`${api.url}/app/datastores/Counter/data/${counterId}`, options(api));
     },
     put(api, counter) {
+        console.log(options(api));
         return axios.put(`${api.url}/app/datastores/Counter/data/${counter._id}`, counter, options(api));
     },
     new(api) {
+        console.log(options(api));
         return axios.post(`${api.url}/app/datastores/Counter/data`, { "value": 0 }, options(api));
     },
     delete(api, counterId) {
@@ -21,7 +23,7 @@ module.exports = {
 }
 
 function options(api) {
-    { headers: headers(api) }
+    return { headers: headers(api) }
 }
 
 function headers(api) {
